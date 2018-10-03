@@ -25,6 +25,7 @@ const args = yargs.argv;
               shouldUseInProcessGanache: false,
               rpcUrl: "localchain:8545",
             };
+            logUtils.log(provider);
             provider = web3Factory.getRpcProvider(providerConfigs);
             txDefaults = {
                 from: devConstants.TESTRPC_FIRST_ADDRESS,
