@@ -2,6 +2,7 @@
 import { devConstants, web3Factory } from '@0xproject/dev-utils';
 import { logUtils } from '@0xproject/utils';
 import { Provider } from 'ethereum-types';
+import { Web3Wrapper } from '@0xproject/web3-wrapper';
 import * as yargs from 'yargs';
 
 import { runV1MigrationsAsync } from './1.0.0/migration';
@@ -27,6 +28,8 @@ const args = yargs.argv;
             };
             provider = web3Factory.getRpcProvider(providerConfigs);
             logUtils.log(provider);
+            const web3Wrapper = new Web3Wrapper(provider);
+            const networkId = await web3Wrapper.getNetworkIdAsync();
             txDefaults = {
                 from: devConstants.TESTRPC_FIRST_ADDRESS,
             };
