@@ -21,7 +21,10 @@ const args = yargs.argv;
     let txDefaults;
     switch (contractsVersion) {
         case ContractVersions.V1:
-            providerConfigs = { shouldUseInProcessGanache: false };
+            providerConfigs = {
+              shouldUseInProcessGanache: false,
+              rpcUrl: "localchain:8545",
+            };
             provider = web3Factory.getRpcProvider(providerConfigs);
             txDefaults = {
                 from: devConstants.TESTRPC_FIRST_ADDRESS,
