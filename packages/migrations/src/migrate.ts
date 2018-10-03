@@ -27,9 +27,9 @@ const args = yargs.argv;
               rpcUrl: "localchain:8545",
             };
             provider = web3Factory.getRpcProvider(providerConfigs);
-            logUtils.log(provider);
             const web3Wrapper = new Web3Wrapper(provider);
             const networkId = await web3Wrapper.getNetworkIdAsync();
+            logUtils.log("networkId")
             logUtils.log(networkId)
             txDefaults = {
                 from: devConstants.TESTRPC_FIRST_ADDRESS,
