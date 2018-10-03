@@ -30,6 +30,7 @@ const args = yargs.argv;
             logUtils.log(provider);
             const web3Wrapper = new Web3Wrapper(provider);
             const networkId = await web3Wrapper.getNetworkIdAsync();
+            logUtils.log(networkId)
             txDefaults = {
                 from: devConstants.TESTRPC_FIRST_ADDRESS,
             };
