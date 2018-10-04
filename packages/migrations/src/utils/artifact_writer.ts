@@ -2,6 +2,7 @@ import { BaseContract } from '@0xproject/base-contract';
 import { ContractArtifact } from 'ethereum-types';
 import * as fs from 'fs';
 import * as path from 'path';
+import { logUtils } from '@0xproject/utils';
 
 export class ArtifactWriter {
     private readonly _artifactsDir: string;
@@ -16,6 +17,8 @@ export class ArtifactWriter {
         const contractName = contract.contractName;
         const artifactFile = path.join(this._artifactsDir, `${contractName}.json`);
         const artifact: ContractArtifact = JSON.parse(fs.readFileSync(artifactFile).toString());
+        logUtils.log("this._networkId")
+        logUtils.log(this._networkId)
         artifact.networks[this._networkId] = {
             address: contract.address,
             links: {},
