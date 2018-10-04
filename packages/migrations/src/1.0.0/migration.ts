@@ -24,13 +24,8 @@ import { ZRXTokenContract } from './contract_wrappers/zrx_token';
  * @param txDefaults Default transaction values to use when deploying contracts.
  */
 export const runV1MigrationsAsync = async (provider: Provider, artifactsDir: string, txDefaults: Partial<TxData>) => {
-    logUtils.log('runV1MigrationsAsync')
     const web3Wrapper = new Web3Wrapper(provider);
-    try {
-      const networkId = await web3Wrapper.getNetworkIdAsync();
-    } catch (e) {
-      logUtils.log(e)
-    }
+    const networkId = await web3Wrapper.getNetworkIdAsync();
     const artifactsWriter = new ArtifactWriter(artifactsDir, networkId);
     const tokenTransferProxy = await TokenTransferProxy_v1Contract.deployFrom0xArtifactAsync(
         artifacts.TokenTransferProxy,

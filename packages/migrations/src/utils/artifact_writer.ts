@@ -17,8 +17,6 @@ export class ArtifactWriter {
         const contractName = contract.contractName;
         const artifactFile = path.join(this._artifactsDir, `${contractName}.json`);
         const artifact: ContractArtifact = JSON.parse(fs.readFileSync(artifactFile).toString());
-        logUtils.log("this._networkId")
-        logUtils.log(this._networkId)
         artifact.networks[this._networkId] = {
             address: contract.address,
             links: {},
