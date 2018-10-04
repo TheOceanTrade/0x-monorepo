@@ -23,8 +23,7 @@ const args = yargs.argv;
     switch (contractsVersion) {
         case ContractVersions.V1:
             providerConfigs = {
-              shouldUseInProcessGanache: false,
-              rpcUrl: "localchain:8545",
+              shouldUseInProcessGanache: false
             };
             provider = web3Factory.getRpcProvider(providerConfigs);
             const web3Wrapper = new Web3Wrapper(provider);
