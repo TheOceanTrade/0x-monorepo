@@ -26,9 +26,11 @@ import { ZRXTokenContract } from './contract_wrappers/zrx_token';
 export const runV1MigrationsAsync = async (provider: Provider, artifactsDir: string, txDefaults: Partial<TxData>) => {
     logUtils.log('runV1MigrationsAsync')
     const web3Wrapper = new Web3Wrapper(provider);
-    const networkId = await web3Wrapper.getNetworkIdAsync();
-    logUtils.log('networkId in 1.0.0/migration.ts')
-    logUtils.log(networkId)
+    try {
+      const networkId = await web3Wrapper.getNetworkIdAsync();
+    } catch (e) {
+      logUtils.log(e)
+    }
     const artifactsWriter = new ArtifactWriter(artifactsDir, networkId);
     const tokenTransferProxy = await TokenTransferProxy_v1Contract.deployFrom0xArtifactAsync(
         artifacts.TokenTransferProxy,
