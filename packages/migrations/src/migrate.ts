@@ -27,7 +27,6 @@ const args = yargs.argv;
             };
             provider = web3Factory.getRpcProvider(providerConfigs);
             const web3Wrapper = new Web3Wrapper(provider);
-            const networkId = await web3Wrapper.getNetworkIdAsync;
             txDefaults = {
                 from: devConstants.TESTRPC_FIRST_ADDRESS,
             };

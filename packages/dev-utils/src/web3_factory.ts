@@ -15,7 +15,7 @@ export interface Web3Config {
     hasAddresses?: boolean; // default: true
     shouldUseInProcessGanache?: boolean; // default: false
     shouldThrowErrorsOnGanacheRPCResponse?: boolean; // default: true
-    rpcUrl?: string; // default: localhost:8545
+    rpcUrl?: string; 
     shouldUseFakeGasEstimate?: boolean; // default: true
 }
 
