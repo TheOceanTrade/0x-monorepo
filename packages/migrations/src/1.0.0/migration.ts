@@ -68,7 +68,7 @@ export const runV1MigrationsAsync = async (provider: Provider, artifactsDir: str
     );
     artifactsWriter.saveArtifact(multiSig);
 
-    const owner = accounts[0];
+    const owner = txDefaults.from;
 
     await web3Wrapper.awaitTransactionSuccessAsync(
         await tokenTransferProxy.addAuthorizedAddress.sendTransactionAsync(exchange.address, { from: owner }),
