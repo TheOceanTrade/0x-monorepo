@@ -1,3 +1,13 @@
+const DEFAULT_RPC_URL = 'http://localhost:8545';
+const DEFAULT_RPC_PORT = 8545;
+const DEFAULT_GAS_LIMIT = 7000000;
+const DEFAULT_TESTRPC_FIRST_ADDRESS = '0x5409ed021d9299bf6814279a6a1411a7e866a631';
+
+const RPC_URL = process.env.RPC_URL || DEFAULT_RPC_URL;
+const RPC_PORT = Number(process.env.RPC_PORT) || DEFAULT_RPC_PORT;
+const GAS_LIMIT = Number(process.env.GAS_LIMIT) || DEFAULT_GAS_LIMIT;
+const TESTRPC_FIRST_ADDRESS = process.env.TESTRPC_FIRST_ADDRESS || DEFAULT_TESTRPC_FIRST_ADDRESS;
+
 export const constants = {
     RPC_URL: 'http://localchain:8545',
     RPC_PORT: 8545,
